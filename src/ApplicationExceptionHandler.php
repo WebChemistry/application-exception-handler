@@ -48,7 +48,7 @@ final class ApplicationExceptionHandler
 
 		foreach ($this->catchExceptions as $class => $callback) {
 			if (is_a($exception, $class)) {
-				$callback($request);
+				$callback($request, $exception);
 
 				return $request->getResponse();
 			}
